@@ -1,5 +1,7 @@
 package com.distribuida.principal;
 
+import java.util.Date;
+
 import com.distribuida.entities.Cliente;
 import com.distribuida.entities.Factura;
 
@@ -21,7 +23,7 @@ public class FacturaPrincipal {
 		factura.setTotal(138.64);
 		 
 		factura.setCliente(cliente);
-		System.out.println(factura.toString())
+		System.out.println(factura.toString());
 	}
 
 }
