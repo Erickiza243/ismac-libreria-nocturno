@@ -14,29 +14,29 @@ public class AutorDAOPrincipal {
 	public static void main(String[] args) {
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("ApplicationContext.xml");
 
-		AutorDAO AutorDAO = context.getBean("AutorDAOImpl",AutorDAO.class);
+		AutorDAO autorDAO = context.getBean("autorDAOImpl",AutorDAO.class);
 		
 		//insert
-		Autor Autor =new Autor(0,"1270123456","Juan","Taipe","Quito","0987654321","jtape@correo.com");
-		//AutorDAO.add(Autor);
+		Autor autor =new Autor(0,"Erick","Iza","Ecuador","Puembo","090102983","asdlal@dsld.com");
+		autorDAO.add(autor);
 		//update
-			Autor Autor2 =new Autor(39,"1270123456","Juan7","Taipe7","Quito7","0987654777","jtape7@correo.com");
-				//AutorDAO.add(cliente2);
+		//	Autor Autor2 =new Autor(0,"jose","Taipe","Ecuador","Tumbaco","0999824674","jtape12@correo.com");
+				//AutorDAO.add(Autor1);
 
 		//Delete
 		//AutorDAO.del(39);
 		//findOne
-		try {
-			Autor Autor3 =AutorDAO.findOne(39);
+		/*try {
+			Autor Autor3 =autorDAO.findOne(39);
 			System.out.println(Autor3.toString());
 			
 		}catch (Exception e) {
 			e.printStackTrace();
-		}
+		}*/
 				
 		
 		//findAll
-		List<Autor>Autor1 =AutorDAO.findAll();
+		List<Autor>Autor1 =autorDAO.findAll();
 		
 		for (Autor item:Autor1) {
 			System.out.println(item.toString());

@@ -17,21 +17,21 @@ public class ClienteDAOPrincipal {
 		
 		//insert
 		Cliente cliente =new Cliente(0,"1270123456","Juan","Taipe","Quito","0987654321","jtape@correo.com");
-		//clienteDAO.add(cliente);
+		clienteDAO.add(cliente);
 		//update
-				Cliente cliente2 =new Cliente(39,"1270123456","Juan7","Taipe7","Quito7","0987654777","jtape7@correo.com");
+	//			Cliente cliente2 =new Cliente(39,"1270123456","Juan7","Taipe7","Quito7","0987654777","jtape7@correo.com");
 				//clienteDAO.add(cliente2);
 
 		//Delete
 		//clienteDAO.del(39);
 		//findOne
-		try {
+	/*	try {
 			Cliente cliente3 =clienteDAO.findOne(39);
 			System.out.println(cliente3.toString());
 			
 		}catch (Exception e) {
 			e.printStackTrace();
-		}
+		}*/
 				
 		
 		//findAll

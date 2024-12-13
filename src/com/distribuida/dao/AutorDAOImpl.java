@@ -11,8 +11,9 @@ import org.springframework.stereotype.Repository;
 
 import com.distribuida.entities.Autor;
 
-@Repository
 
+
+@Repository
 public class AutorDAOImpl implements AutorDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
@@ -32,16 +33,16 @@ public class AutorDAOImpl implements AutorDAO {
 
 	@Override
 	@Transactional
-	public void add(Autor Autor) {
+	public void add(Autor autor) {
 		Session session = sessionFactory.getCurrentSession();
-		session.saveOrUpdate(Autor);
+		session.saveOrUpdate(autor);
 	}
 
 	@Override
 	@Transactional
-	public void up(Autor Autor) {
+	public void up(Autor autor) {
 		Session session = sessionFactory.getCurrentSession();
-		session.saveOrUpdate(Autor);
+		session.saveOrUpdate(autor);
 
 	}
 
@@ -51,5 +52,6 @@ public class AutorDAOImpl implements AutorDAO {
 		Session session = sessionFactory.getCurrentSession();
 		session.delete(findOne(id));
 	}
+	
 
 }
