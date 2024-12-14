@@ -1,13 +1,26 @@
 package com.distribuida.entities;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Categoria")
 public class Categoria {
-		
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id_Categoria")	
 	private int idCategoria;
+	@Column(name="categoria")	
 	private String categoria;
+	@Column(name="descripcion")
 	private String descripcion;
 	
 	public Categoria() {
-		
+	
 	}
 
 	public Categoria(int idCategoria, String categoria, String descripcion) {
