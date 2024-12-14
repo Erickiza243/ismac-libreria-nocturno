@@ -32,17 +32,17 @@ public class CategoriaDAOImpl implements CategoriaDAO {
 	}
 	@Override
 	@Transactional
-	public void add(Categoria Categoria) {
+	public void add(Categoria categoria) {
 		Session session = sessionFactory.getCurrentSession();
-		session.saveOrUpdate(Categoria);
+		session.saveOrUpdate(categoria);
 
 	}
 
 	@Override
 	@Transactional
-	public void up(Categoria Categoria) {
+	public void up(Categoria categoria) {
 		Session session = sessionFactory.getCurrentSession();
-		session.saveOrUpdate(Categoria);
+		session.saveOrUpdate(categoria);
 
 
 	}
@@ -53,6 +53,7 @@ public class CategoriaDAOImpl implements CategoriaDAO {
 		Session session = sessionFactory.getCurrentSession();
 		session.delete(findOne(id));
 
+		
 	}
 
 }
