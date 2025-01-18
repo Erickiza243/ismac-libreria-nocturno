@@ -2,26 +2,51 @@ package com.distribuida.entities;
 
 import java.util.Date;
 
-public class Libro {
-	
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "libro")
+public class Libro {
+ 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_libro")
 	private int idLibro;
+	@Column(name = "titulo")
 	private String titulo;
+	@Column(name = "editorial")
 	private String editorial;
+	@Column(name = "num_paginas")
 	private int numPaginas;
+	@Column(name = "edicion")
 	private String edicion;
+	@Column(name = "idioma")
 	private String idioma;
+	@Column(name = "fechaPublicacion")
 	private Date fechaPublicacion;
+	@Column(name = "descripcion")
 	private String descripcion;
+	@Column(name = "tipo_pasta")
 	private String tipoPasta;
+	@Column(name = "ISBN")
 	private String iSBN;
+	@Column(name = "num_ejemplares")
 	private int numEjemplares;
+	@Column(name = "portada")
 	private String portada;
+	@Column(name = "presentacion")
 	private String presentacion;
+	@Column(name = "precio")
 	private Double precio;
-	
-	private Autor autor;
-	private Categoria categoria;
+	@Column(name ="categoria")
+	private String categoria;
+	@Column (name ="Autor")
+	private String autor;
 	
 	
 	public Libro() {
@@ -31,7 +56,7 @@ public class Libro {
 
 	public Libro(int idLibro, String titulo, String editorial, int numPaginas, String edicion, String idioma,
 			Date fechaPublicacion, String descripcion, String tipoPasta, String iSBN, int numEjemplares, String portada,
-			String presentacion, Double precio, Autor autor, Categoria categoria) {
+			String presentacion, Double precio, String autor, String categoria) {
 		this.idLibro = idLibro;
 		this.titulo = titulo;
 		this.editorial = editorial;
@@ -191,22 +216,22 @@ public class Libro {
 	}
 
 
-	public Autor getAutor() {
+	public String getAutor() {
 		return autor;
 	}
 
 
-	public void setAutor(Autor autor) {
+	public void setAutor(String autor) {
 		this.autor = autor;
 	}
 
 
-	public Categoria getCategoria() {
+	public String getCategoria() {
 		return categoria;
 	}
 
 
-	public void setCategoria(Categoria categoria) {
+	public void setCategoria(String categoria) {
 		this.categoria = categoria;
 	}
 

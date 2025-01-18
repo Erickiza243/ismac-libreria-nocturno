@@ -11,47 +11,48 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.distribuida.dao.ClienteDAO;
-import com.distribuida.entities.Cliente;
+import com.distribuida.dao.AutorDAO;
+
+import com.distribuida.entities.Autor;
+
 
 @Controller
-@RequestMapping("/clientes")
-public class ClienteController {
+@RequestMapping("/Autor")
+public class AutorController {
 
-	
 	@Autowired
-	private ClienteDAO clienteDAO;
+	private AutorDAO autorDAO;
 	
 	@GetMapping("/findAll")
 	public String findAll(Model model) {
 		
-		List<Cliente> clientes = clienteDAO.findAll();
+		List<Autor> autor = autorDAO.findAll();
 		
-		model.addAttribute("clientes", clientes);
+		model.addAttribute("autor", autor);
 		
 		
-		return "clientes-listar";
+		return "autor-listar";
 		
 	}
 	
 	@GetMapping("/findOne")
-	public String findOne(@RequestParam("idCliente") @ Nullable Integer idCliente
+	public String findOne(@RequestParam("idAutor") @ Nullable Integer idautor
 			,@RequestParam("opcion") @Nullable Integer opcion
 			, Model model
 			) {
 		
-		if(idCliente != null) {
-			Cliente cliente = clienteDAO.findOne(idCliente);
-			model.addAttribute("cliente", cliente);
+		if(idautor != null) {
+			Autor autor = autorDAO.findOne(idautor);
+			model.addAttribute("autor", autor);
 		}
 		
-		if(opcion == 1) return "clientes-add";
-		return "clientes-del";
+		if(opcion == 1) return "cliente-add";
+		return "cliente-del";
 	}
 	
 	@PostMapping("/add")
-	public String add(@RequestParam("idCliente") @Nullable Integer idCliente
-			, @RequestParam("cedula") @Nullable String cedula
+	public String add(@RequestParam("idAutor") @Nullable Integer idAutor
+			, @RequestParam("pais") @Nullable String pais
 			, @RequestParam("nombre") @Nullable String nombre
 			, @RequestParam("apellido") @Nullable String apellido
 			, @RequestParam("direccion") @Nullable String direccion
@@ -61,21 +62,21 @@ public class ClienteController {
 			) {
 		
 		
-		if(idCliente == null) {
-			Cliente cliente = new Cliente(0 , cedula, nombre, apellido, direccion, telefono, correo);
-			clienteDAO.add(cliente);
+		if(idAutor == null) {
+			Autor autor = new Autor(0 , nombre, apellido,pais,direccion, telefono, correo);
+			autorDAO.add(autor);
 		}else {
-			Cliente cliente2 = new Cliente(idCliente , cedula, nombre, apellido, direccion, telefono, correo);
-            clienteDAO.up(cliente2);
+			Autor autor2 = new Autor(idAutor , nombre, apellido,pais,direccion, telefono, correo);
+            autorDAO.up(autor2);
 		}
-		return "redirect://clientes/findAll";
+		return "redirect://autor/findAll";
 		
 	}
 	
 	@GetMapping("/del")
-	public String del(@RequestParam("idCliente") @Nullable Integer idCliente) {
-		clienteDAO.del(idCliente);
-		return "redirect://clientes/findAll";
+	public String del(@RequestParam("idAutor") @Nullable Integer idAutor) {
+		autorDAO.del(idAutor);
+		return "redirect://autor/findAll";
 	}
 	
 }
