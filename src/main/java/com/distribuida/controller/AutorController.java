@@ -46,8 +46,8 @@ public class AutorController {
 			model.addAttribute("autor", autor);
 		}
 		
-		if(opcion == 1) return "cliente-add";
-		return "cliente-del";
+		if(opcion == 1) return "autor-add";
+		return "autor-del";
 	}
 	
 	@PostMapping("/add")
