@@ -16,11 +16,10 @@ import com.distribuida.entities.Cliente;
 
 @Controller
 @RequestMapping("/clientes")
-public class ClienteController {
 
-	
+public class ClienteController {
 	@Autowired
-	private ClienteDAO clienteDAO;
+	private ClienteDAO clienteDAO; 
 	
 	@GetMapping("/findAll")
 	public String findAll(Model model) {
@@ -31,7 +30,6 @@ public class ClienteController {
 		
 		
 		return "clientes-listar";
-		
 	}
 	
 	@GetMapping("/findOne")
@@ -48,7 +46,6 @@ public class ClienteController {
 		if(opcion == 1) return "clientes-add";
 		return "clientes-del";
 	}
-	
 	@PostMapping("/add")
 	public String add(@RequestParam("idCliente") @Nullable Integer idCliente
 			, @RequestParam("cedula") @Nullable String cedula
@@ -78,4 +75,6 @@ public class ClienteController {
 		return "redirect://clientes/findAll";
 	}
 	
+	
+
 }

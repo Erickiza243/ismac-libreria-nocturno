@@ -2,51 +2,57 @@ package com.distribuida.entities;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+
+
 @Entity
-@Table(name = "libro")
+@Table(name="libro")
 public class Libro {
- 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_libro")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id_libro")
 	private int idLibro;
-	@Column(name = "titulo")
+	@Column(name="titulo")
 	private String titulo;
-	@Column(name = "editorial")
+	@Column(name="editorial")
 	private String editorial;
-	@Column(name = "num_paginas")
+	@Column(name="num_paginas")
 	private int numPaginas;
-	@Column(name = "edicion")
+	@Column(name="edicion")
 	private String edicion;
-	@Column(name = "idioma")
+	@Column(name="idioma")
 	private String idioma;
-	@Column(name = "fechaPublicacion")
+	@Column(name="fecha_publicacion")
 	private Date fechaPublicacion;
-	@Column(name = "descripcion")
+	@Column(name="descripcion")
 	private String descripcion;
-	@Column(name = "tipo_pasta")
+	@Column(name="tipo_pasta")
 	private String tipoPasta;
-	@Column(name = "ISBN")
+	@Column(name="ISBN")
 	private String iSBN;
-	@Column(name = "num_ejemplares")
+	@Column(name="num_ejemplares")
 	private int numEjemplares;
-	@Column(name = "portada")
+	@Column(name="portada")
 	private String portada;
-	@Column(name = "presentacion")
+	@Column(name="presentacion")
 	private String presentacion;
-	@Column(name = "precio")
+	@Column(name="precio")
 	private Double precio;
-	@Column(name ="categoria")
-	private String categoria;
-	@Column (name ="Autor")
-	private String autor;
+	@JoinColumn(name= "id_autor")
+	@ManyToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+	private Autor autor;
+	@JoinColumn(name= "id_categoria")
+	@ManyToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+	private Categoria categoria;
 	
 	
 	public Libro() {
@@ -54,9 +60,10 @@ public class Libro {
 	}
 
 
+
 	public Libro(int idLibro, String titulo, String editorial, int numPaginas, String edicion, String idioma,
 			Date fechaPublicacion, String descripcion, String tipoPasta, String iSBN, int numEjemplares, String portada,
-			String presentacion, Double precio, String autor, String categoria) {
+			String presentacion, Double precio, Autor autor, Categoria categoria) {
 		this.idLibro = idLibro;
 		this.titulo = titulo;
 		this.editorial = editorial;
@@ -216,22 +223,22 @@ public class Libro {
 	}
 
 
-	public String getAutor() {
+	public Autor getAutor() {
 		return autor;
 	}
 
 
-	public void setAutor(String autor) {
+	public void setAutor(Autor autor) {
 		this.autor = autor;
 	}
 
 
-	public String getCategoria() {
+	public Categoria getCategoria() {
 		return categoria;
 	}
 
 
-	public void setCategoria(String categoria) {
+	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
 
