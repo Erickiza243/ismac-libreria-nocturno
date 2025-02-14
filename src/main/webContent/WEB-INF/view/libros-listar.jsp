@@ -12,10 +12,10 @@
  
 <h1>Libros</h1>
 <button onclick="window.location.href='/ismac-libreria-nocturno-web/libros/findOne?opcion=1'; return false;">Agregar</button>
-	
+	  
 <table>
 	<thead>
-		<tr>
+		<tr> 
 		<th>idLibro</th>
 		<th>Titulo</th>
 		<th>Editorial</th>
